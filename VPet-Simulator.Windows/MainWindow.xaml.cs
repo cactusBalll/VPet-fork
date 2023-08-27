@@ -269,14 +269,14 @@ namespace VPet_Simulator.Windows
                     }
                 }
             }
-            else
+            /*else
             {
                 var workshop = Set["workshop"];
                 foreach (Sub ws in workshop)
                 {
                     Path.Add(new DirectoryInfo(ws.Name));
                 }
-            }
+            }*/
             await Dispatcher.InvokeAsync(new Action(() => LoadingText.Content = "Loading MOD"));
             //加载mod
             foreach (DirectoryInfo di in Path)
