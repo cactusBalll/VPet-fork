@@ -48,7 +48,7 @@ namespace VPet_Simulator.Windows
             CultureInfo.CurrentCulture.NumberFormat = new CultureInfo("en-US").NumberFormat;
             //判断是不是Steam用户,因为本软件会发布到Steam
             //在 https://store.steampowered.com/app/1920960/VPet
-            try
+            /*try
             {
 #if DEMO
                 SteamClient.Init(2293870, true);
@@ -64,7 +64,8 @@ namespace VPet_Simulator.Windows
             catch
             {
                 IsSteamUser = false;
-            }
+            }*/
+            IsSteamUser = false; // no steam user check
             try
             {
                 //加载游戏设置
