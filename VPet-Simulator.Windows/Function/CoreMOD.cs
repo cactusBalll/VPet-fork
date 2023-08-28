@@ -202,12 +202,14 @@ namespace VPet_Simulator.Windows
                                 try
                                 {
                                     var path = tmpfi.Name;
+                                    // Mod 作者貌似会把Core程序集和一些支持库添加进来，但是其实只需要一个dll就够了
+                                    // 作者在LoadedDLL里预先写入了这些DLL
                                     if (LoadedDLL.Contains(path))
                                         continue;
                                     LoadedDLL.Add(path);
                                     Assembly dll = Assembly.LoadFrom(tmpfi.FullName);
-                                    var certificate = dll.GetModules()?.First()?.GetSignerCertificate();
-                                    if (certificate != null)
+                                    //var certificate = dll.GetModules()?.First()?.GetSignerCertificate();
+                                    /*if (certificate != null)
                                     {
                                         if (certificate.Subject == "CN=\"Shenzhen Lingban Computer Technology Co., Ltd.\", O=\"Shenzhen Lingban Computer Technology Co., Ltd.\", L=Shenzhen, S=Guangdong Province, C=CN, SERIALNUMBER=91440300MA5H8REU3K, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.1=Shenzhen, OID.1.3.6.1.4.1.311.60.2.1.2=Guangdong Province, OID.1.3.6.1.4.1.311.60.2.1.3=CN"
                                             && certificate.Issuer == "CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1, O=\"DigiCert, Inc.\", C=US")
@@ -235,7 +237,8 @@ namespace VPet_Simulator.Windows
                                             Author = modlps.FindSub("author").Info.Split('[').First();
                                             continue;
                                         }
-                                    }
+                                    }*/
+                                    
                                     var v = dll.GetExportedTypes();
                                     foreach (Type exportedType in v)
                                     {

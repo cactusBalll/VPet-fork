@@ -152,17 +152,9 @@ namespace VPet_Simulator.Windows
             GameVerison.Content = "游戏版本".Translate() + $"v{mw.Version} x86";
 #endif
             //关于ui
-            if (mw.IsSteamUser)
-            {
-                runUserName.Text = Steamworks.SteamClient.Name;
-                runActivate.Text = "已通过Steam[{0}]激活服务注册".Translate(Steamworks.SteamClient.SteamId.Value.ToString("x").Substring(6));
-            }
-            else
-            {
-                runUserName.Text = Environment.UserName;
-                runActivate.Text = "尚未激活 您可能需要启动Steam或去Steam上免费领个".Translate();
-                RBCGPTUseLB.IsEnabled = false;
-            }
+            runUserName.Text = Environment.UserName;
+            runActivate.Text = "fork by cactusloth64,基于GitHub开源版本, 或许可以去Steam搜索虚拟桌宠模拟器？".Translate();
+            RBCGPTUseLB.IsEnabled = false;
             //CGPT
             switch (mw.Set["CGPT"][(gstr)"type"])
             {

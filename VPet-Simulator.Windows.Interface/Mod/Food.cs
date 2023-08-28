@@ -171,6 +171,7 @@ namespace VPet_Simulator.Windows.Interface
         /// </summary>
         public void LoadImageSource(IMainWindow imw)
         {
+            // 只要lps声明的食物名和图片文件名一样就行
             ImageSource = imw.ImageSources.FindImage(Image ?? Name, "food");
             Star = imw.Set["betterbuy"]["star"].GetInfos().Contains(Name);
             LoadEatTimeSource(imw);
